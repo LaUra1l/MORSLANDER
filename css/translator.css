@@ -1,0 +1,210 @@
+.section1{
+    .content{
+        width: 100%;
+        min-height: 100vh;
+        background-color: var(--opacityColor);
+        position: relative;
+
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        color: var(--color1);
+
+        .div{
+            width: 100%;
+
+            margin-top: 150px;
+
+            .reglas_icon{
+                position: relative;
+                text-align: right;
+                margin-right: 40px;
+                font-size: 2rem;
+                .book{
+                    cursor: pointer;
+                    transition: .4s;
+                    
+                    &:hover{
+                        text-shadow: var(--glowLight);
+                    }
+                }
+               
+
+                .reglasDiv{
+                    position: absolute;
+                    text-align: center;
+                    
+                    overflow-y: scroll;
+                    top: 45px;
+                    right: 36px;
+                    width: 200px;
+                    height: 0px;
+                    background-color: var(--color2);
+                    font-size: 1rem;
+                    border-top-left-radius:12px ;
+                    border-bottom-left-radius:12px ;
+
+                    &::-webkit-scrollbar {
+                        width: 5px; 
+                        background: var(--color3); 
+                    }
+
+/* Track (the background) */
+                    &::-webkit-scrollbar-track {
+                        background: var(--color1); 
+                        
+                    }
+
+/* Handle (the draggable part) */
+                    &::-webkit-scrollbar-thumb {
+                        background: #888; 
+                        border-radius: 10px;
+                    }
+
+/* Handle on hover */
+                    &::-webkit-scrollbar-thumb:hover {
+                        background: #555; 
+                    }
+
+                    .contentBook{
+                        padding: 15px;
+                    }
+                    
+                }
+            }
+    
+    
+            .translatorDiv{
+    
+    
+                .upSection{
+                    text-align: center;
+                    margin: 10px 0 35px 0;
+
+                    .icon{
+                        margin: 0 10px;
+                    }
+
+                    span{
+                        width: 100px;
+                        height: 15px;
+                        padding: 2px 7px;
+                        border: 2px solid var(--color1);
+                        transition: .4s;
+                    }
+                }
+                .input{
+                    background-color: var(--color4);
+                    width: 220px;
+                    height: 30px;
+                    color: var(--color1);
+                    transition: 0s;
+                    border: 2px solid var(--color1);
+                    border-radius: 10px;
+                    padding: 2px 15px;
+
+                    &::placeholder{
+                        color: rgb(131, 131, 131);
+                    }
+
+                    &:focus{
+                        border: 2px solid var(--color2);
+                        outline: none;
+                    }
+                }
+                hr{
+                    width: 95%;
+                    border: none;
+                    border-top: 3px dashed var(--color1);
+                    margin: 50px auto;
+                }
+
+                .btnDiv{
+                    width: 20%;
+               
+                    .btnDesign{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        background-color: var(--color4);
+
+                        border-left: 2px solid var(--color1);
+                        border-right: 2px solid var(--color2);
+                        border-top: 2px dashed var(--color1);
+                        border-bottom: 2px dashed var(--color2);
+                        transition: .1s;
+
+
+                        color: var(--color1);
+                        font-size: 1.1rem;
+                        
+                            &:active{
+                                border-left: 2px dashed var(--color2);
+                                border-right: 2px dashed var(--color1);
+                                border-top: 2px solid var(--color2);
+                                border-bottom: 2px solid var(--color1);
+                            }
+                    }
+                }
+                .txtContener{
+                    width: 80%;
+                    margin: 30px auto;
+                    p{
+                        font-size: smaller;
+                    }
+                }
+            }
+        }
+
+        .wave3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .wave3 svg {
+            position: relative;
+            display: block;
+            width: calc(180% + 1.3px);
+            height: 90px;
+        }
+        
+        .wave3 .shape-fill {
+            fill: var(--color1);
+        }
+        .wave4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave4 svg {
+            position: relative;
+            display: block;
+            width: calc(180% + 1.3px);
+            height: 90px;
+        }
+        
+        .wave4 .shape-fill {
+            fill: var(--color1);
+        }
+    }
+}
+
+
+
+.mors_icon{
+    margin: 2px;
+}
+.unique{
+    color: var(--color1);
+    text-shadow: var(--glowLight);
+
+}
