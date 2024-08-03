@@ -133,7 +133,7 @@
 
     .sectionQuiz{
         width: 100%;
-        min-height: 95vh;
+        height: 95vh;
         background-color: var(--color3);
         padding-top: 30px;
       
