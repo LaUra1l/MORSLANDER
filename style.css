@@ -309,7 +309,7 @@ a{
 /* RESPONSIVE:  */
 @media (max-width: 723px) {
     .mainPage {
-        background-position-x: 50% !important;
+        background-position-x: 60% !important;
     }
     .nav {
         display: none !important;
