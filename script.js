@@ -1401,16 +1401,18 @@ class Results {
 
     }
 
-    #init(){
+     #init(){
         window.addEventListener('DOMContentLoaded',()=>{
-            console.log( JSON.parse(localStorage.getItem("Completed_quiz")));
-
-            let quizList=[...JSON.parse(localStorage.getItem("Completed_quiz"))];
-            quizList.forEach(quiz=>{
-                this.#addResult_toPage(quiz)
-            })
             
+            if(JSON.parse(localStorage.getItem("Completed_quiz")) ){
+                console.log( JSON.parse(localStorage.getItem("Completed_quiz")));
 
+                let quizList=[...JSON.parse(localStorage.getItem("Completed_quiz"))];
+                quizList.forEach(quiz=>{
+                    this.#addResult_toPage(quiz)
+                })
+            }
+            
         })
     }
 
