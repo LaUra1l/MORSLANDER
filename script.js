@@ -74,8 +74,40 @@ const mors_code = [
     { letter: " ", mors: " ", mors_icon: createMorsIcon(" ") }
 ];
 
-const circleLetters='aeiu';
-const lineLetters='o';
+const circleLetters='aei';
+const lineLetters='ou';
+
+
+const suggestion_table = new Map([
+    ["A", ['Amor', 'Albo','Arbuz']],
+    ["B", ['Boazeria']],
+    ["C", ['Cocacola']],
+    ["D", ['Dolina', 'Dobrawa','Dodawać']],
+    ["E", ['Elf']],
+    ["F", ['Faszerować']],
+    ["G", ['Gumowa']],
+    ["H", ['Hahahaha']],
+    ["I", ['Igła', 'Iza','Ibis',"Imię", "Inka"]],
+    ["J", []],
+    ["K", ['Koralowy']],
+    ["L", ['Latarnia', 'Lampkowaa','Lagunaa']],
+    ["M", ['Momo','Murowy']],
+    ["N", ['Noga', 'Nosa','Nowa','Nuria','Nora']],
+    ["O", ['Ooo', 'Oknoo','Okupowy','Ouzo',"Oulu"]],
+    ["P", ['Palto', 'Piotrowice']],
+    ["Q", ['Quo', 'Quartz']],
+    ["R", ['Ratuj', 'Ratunek','Ratować']],
+    ["S", ['Sakrament','Senegal','Samanta','Sahara']],
+    ["T", ['To','Tom', 'Tor']],
+    ["U", ['Ultraarbuz','Ultraamor','Ulano']],
+    ["V", ['Valencio']],
+    ["W", ['Wichuro']],
+    ["X", ['Xero', 'Xenon']],
+    ["Y", ["Yuma", "Yolo", "Yuri",'Yomamolo']],
+    ["Z", ['Zozolee', 'Zebra','Zubożała','Zdruzgotana']]
+]);
+
+
 
 
 
@@ -92,39 +124,50 @@ class IconInteraction{
         
     }
 
-    addClassName(elementClick,elemMenu,elementListener,
-        classNameONE,classNameTWO,height,lookInside=false
-    ){
-        let roll=false;
-        let menu=this.getElement(elemMenu);
-        const clickElement=[...document.getElementsByClassName(elementClick)];
-
-        clickElement.forEach(elem=>{
-            elem.addEventListener(elementListener,()=>{
-
-                if(lookInside){
-                    menu=elem.parentNode.querySelector(elemMenu);
-                    if(roll){
-                        elem.textContent="OPIS";
-                    }
-                    else{
-                        elem.textContent="ZWIŃ";
-                    }
+    addClassName(elementClick, elemMenu, elementListener, classNameONE, classNameTWO, height, lookInside = false) {
+        let roll = false;
+        let menu = this.getElement(elemMenu);
+        const clickElements = [...document.getElementsByClassName(elementClick)];
+    
+        const closeMenu = () => {
+            menu.style.height = '0px';
+            classNameTWO.split(' ').forEach(cls => clickElements[0].classList.remove(cls));
+            classNameONE.split(' ').forEach(cls => clickElements[0].classList.add(cls));
+            roll = false;
+            window.removeEventListener('click', handleOutsideClick); // Usuwanie tymczasowego eventListenera
+        };
+    
+        const handleOutsideClick = (event) => {
+            if (!menu.contains(event.target) && !clickElements[0].contains(event.target)) {
+                closeMenu();
+            }
+        };
+    
+        clickElements.forEach(elem => {
+            elem.addEventListener(elementListener, (event) => {
+                roll = !roll;
+    
+                if (roll) {
+                    menu.style.height = height;
+                    classNameONE.split(' ').forEach(cls => elem.classList.remove(cls));
+                    classNameTWO.split(' ').forEach(cls => elem.classList.add(cls));
+    
+                    setTimeout(() => {
+                        window.addEventListener('click', handleOutsideClick);
+                    }, 0);
+                    
+                } else {
+                    closeMenu();
                 }
-
-                roll=!roll;
-                
-               if(roll){
-                menu.style.height=height
-                elem.className=classNameTWO;
-               }
-               else{
-                menu.style.height='0px'
-                elem.className=classNameONE;
-               }
-            })
-        })
+    
+                if (lookInside) {
+                    menu = elem.parentNode.querySelector(elemMenu);
+                    elem.textContent = roll ? "ZWIŃ" : "OPIS";
+                }
+            });
+        });
     }
+
     addAnimation(
         // PODSTAWOWE
         element, animation, eventListener,
@@ -171,6 +214,7 @@ class IconInteraction{
 
         if(isDarkMode){
             backgroundImage.style.backgroundImage=lightPhoto;
+            
         }
         else{
             backgroundImage.style.backgroundImage=darkPhoto;
@@ -591,6 +635,7 @@ class ElementalCreator{
 
             const morsDiv = document.createElement('div');
             morsDiv.className = 'morsDiv';
+            
             if(this.useMors.lookForLetters(inp.id).mors_icon){
                 morsDiv.innerHTML = this.useMors.lookForLetters(inp.id).mors_icon;
 
@@ -646,7 +691,7 @@ class ElementalCreator{
             btn_yourname.style.pointerEvents="none";
         }
 
-        // Sprawdzam, czy słownik jest pełny i sortujemy, jeśli jest
+        // Sprawdzam, czy słownik jest pełny i sortuje, jeśli jest
         if (this.useMors.checkIsComplete(this.useMors.yourDictionary.dictionary.size, this.useMors.yourDictionary.alphabet.length)) {
             this.#text="ZOBACZ / EDYTUJ";
             this.setText();
@@ -699,11 +744,25 @@ class ElementalCreator{
             }
 
             
-    
+
             const inp = document.createElement('input');
             inp.className = className_inp;
             inp.id = id_table[i];
             inp.placeholder = inp.id;
+            inp.setAttribute('list',inp.id+"_list")
+
+            const datalist=document.createElement('datalist');
+            datalist.id=inp.id+"_list";
+
+
+            let actual_sugestionList=this.useMors.sugestionList.get(inp.id);
+
+            for(let x=0;x<actual_sugestionList.length;x++){
+                const option=document.createElement('option');
+                option.value=actual_sugestionList[x];
+
+                datalist.appendChild(option);
+            }
     
             const label = document.createElement('label');
             label.htmlFor = inp.id;
@@ -731,8 +790,8 @@ class ElementalCreator{
     
                 this.useMors.validateText(regExp, inp, [...morsDiv.children]);
             }
-    
             this.#contener.appendChild(label);
+            this.#contener.appendChild(datalist);
         }
     
         if (lastindex + numberOfInps < id_table.length) {
@@ -836,6 +895,7 @@ class UseMors {
         this.table_mors = mors_code;
         this.yourDictionary = dictionaryClass;
         this.lastLetter = 'A';
+        this.sugestionList=suggestion_table;
     }
 
     lookForLetters(letter) {
@@ -880,16 +940,15 @@ class UseMors {
 
         if(this.lookForLetters(letter).letter){
             const mors_chars = this.lookForLetters(letter).mors;
-            let licznik_kolko = 0;
-            let licznik_kreska = 0;
+
             console.log('----------')
             for (let i = 0; i < mors_chars.length; i++) {
                 if (mors_chars[i] === '.') {
-                    licznik_kolko++;
-                    regexTxt += `[${circleLetters}][bcdfghjklmnopqrstvwxyz]*`
+             
+                    regexTxt += `[${circleLetters}][bcćdfghjklłmnńoópqrsśtuvwxyzżź]*`
                 } else if (mors_chars[i] === '-') {
-                    licznik_kreska++;
-                    regexTxt += `[${lineLetters}][abcdefghijklmnpqrstuvwxyz]*`;
+                 
+                    regexTxt += `[${lineLetters}][aąbćcdeęfghijklłmnńpqrsśtvwxyzżź]*`;
                 } else {
                     console.log('cos zle');
                 }
@@ -1401,8 +1460,9 @@ class Results {
 
     }
 
-     #init(){
+    #init(){
         window.addEventListener('DOMContentLoaded',()=>{
+            //TUTAJ:  
             
             if(JSON.parse(localStorage.getItem("Completed_quiz")) ){
                 console.log( JSON.parse(localStorage.getItem("Completed_quiz")));
@@ -1412,7 +1472,10 @@ class Results {
                     this.#addResult_toPage(quiz)
                 })
             }
+           
+           
             
+
         })
     }
 
@@ -1458,7 +1521,10 @@ class Results {
 }
 
 const navBar=new IconInteraction();
-navBar.addClassName('navBar','.navList','click','fa-solid fa-bars-staggered navBar','fa-regular fa-rectangle-xmark navBar','320px');
+navBar.addClassName('navBar','.navList','click','fa-solid fa-bars-staggered navBar','fa-solid fa-rectangle-xmark navBar','320px');
+
+
+
 
 const lamp=new IconInteraction();
 lamp.addAnimation(".navIcon","roll 1.5s forwards","click",true);
