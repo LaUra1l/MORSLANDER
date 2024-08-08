@@ -28,6 +28,9 @@
                 align-items: center;
                 text-align: center;
 
+                z-index: 6;
+                position: relative;
+
                     
                 p{
                     margin: 10px;
