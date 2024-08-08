@@ -237,27 +237,7 @@ a{
     background-color: var(--color4) !important;
 }
 
-.wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
 
-}
-
-.wave svg {
-    position: relative;
-    display: block;
-    width: calc(118% + 1.3px);
-    height: 84px;
-}
-
-.wave .shape-fill {
-    fill: var(--color2);
-}
 .line-rotated{
     rotate: 120deg;
 }
