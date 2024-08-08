@@ -58,6 +58,12 @@
                 margin-top: 20px;
                 background-color: var(--color4);
 
+                ul{
+                   li{
+                    margin-bottom: 10px;
+                   }
+                }
+
                 span{
                     letter-spacing: 2px;
                 }
@@ -85,6 +91,7 @@
             }
 
         }
+        
 
         .wave2 {
             position: absolute;
@@ -108,7 +115,27 @@
     }
 }
 
+.wave {
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
 
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(118% + 1.3px);
+    height: 84px;
+}
+
+.wave .shape-fill {
+    fill: var(--color2);
+}
 /* RESPONSIVE:  */
 
 @media (max-width: 723px) {
