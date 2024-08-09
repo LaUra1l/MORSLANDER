@@ -88,23 +88,23 @@ const suggestion_table = new Map([
     ["G", ['Gumowa']],
     ["H", ['Hahahaha']],
     ["I", ['Igła', 'Iza','Ibis',"Imię", "Inka"]],
-    ["J", []],
+    ["J", ['Jajooo']],
     ["K", ['Koralowy']],
-    ["L", ['Latarnia', 'Lampkowaa','Lagunaa']],
+    ["L", ['Lampkowaa','Lagunaa']],
     ["M", ['Momo','Murowy']],
     ["N", ['Noga', 'Nosa','Nowa','Nuria','Nora']],
     ["O", ['Ooo', 'Oknoo','Okupowy','Ouzo',"Oulu"]],
-    ["P", ['Palto', 'Piotrowice']],
-    ["Q", ['Quo', 'Quartz']],
-    ["R", ['Ratuj', 'Ratunek','Ratować']],
+    ["P", ['Piotrowice']],
+    ["Q", ['Quoao']],
+    ["R", ['Ratunek','Ratować']],
     ["S", ['Sakrament','Senegal','Samanta','Sahara']],
     ["T", ['To','Tom', 'Tor']],
-    ["U", ['Ultraarbuz','Ultraamor','Ulano']],
+    ["U", ['Ultraarbuz','Ultraamor']],
     ["V", ['Valencio']],
     ["W", ['Wichuro']],
-    ["X", ['Xero', 'Xenon']],
-    ["Y", ["Yuma", "Yolo", "Yuri",'Yomamolo']],
-    ["Z", ['Zozolee', 'Zebra','Zubożała','Zdruzgotana']]
+    ["X", ['Xuaau']],
+    ["Y", ['Yomamolo']],
+    ["Z", ['Zozolee','Zubożała','Zdruzgotana']]
 ]);
 
 
@@ -736,11 +736,15 @@ class ElementalCreator{
             if (this.useMors.checkAlphabet(id_table[i])) {
                 numberOfInps++;
                 console.log("LICZBA DO STWORZENIA: ",numberOfInps);
-                if (confirm("Chcesz zmienić wartość dla tej litery?")) {
-                    console.log('ok');
-                } else {
-                    continue;
-                }
+                // TUTAJJJJJJ:: 
+
+                // if (confirm("Chcesz zmienić wartość dla tej litery?")) {
+                //     console.log('ok');
+                // } else {
+                //     continue;
+                // }
+
+                continue;
             }
 
             
@@ -754,8 +758,9 @@ class ElementalCreator{
             const datalist=document.createElement('datalist');
             datalist.id=inp.id+"_list";
 
-
-            let actual_sugestionList=this.useMors.sugestionList.get(inp.id);
+            console.log(inp.id)
+            let actual_sugestionList=this.useMors.sugestionList.get(inp.id.toLocaleUpperCase());
+            console.log(actual_sugestionList)
 
             for(let x=0;x<actual_sugestionList.length;x++){
                 const option=document.createElement('option');
@@ -966,7 +971,7 @@ class UseMors {
 
     checkAlphabet(letter) {
         if (this.yourDictionary.dictionary.has(letter)) {
-            alert("Litera: " + letter + " już ma swoje słówko");
+            // alert("Litera: " + letter + " już ma swoje słówko");
             return true;
         } else {
         }
