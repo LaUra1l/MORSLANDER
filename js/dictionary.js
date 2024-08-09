@@ -13,22 +13,17 @@ function createInps(){
         elementalCreator.createInputs(true,'inp',yourDictionary.alphabet.toUpperCase(),5,true);
         elementalCreator.createBtn_submit('btn_submit','<i class="fa-regular fa-thumbs-up"></i>')
     });
-    btn_yourname.addEventListener('click',()=>{
-        let yourname=new Set(prompt("Jak masz na imie?"));
+    btn_yourname.addEventListener('click', () => {
+        let yourname = new Set(prompt("Jak masz na imie?").toUpperCase());  // Konwertuj na wielkie litery
     
-        yourname=[...yourname];
-
-       if(yourname.length>0){
-        console.log('mam imie')
-        yourname.forEach(letter=>letter.toUpperCase());
-        elementalCreator.createInputs(true,'inp',yourname,yourname.length,true);
-            elementalCreator.createBtn_submit('btn_submit','<i class="fa-regular fa-thumbs-up"></i>')
-        
-       }
-       else{
-        return;
-    }
-       
+        yourname = [...yourname];
+    
+        if (yourname.length > 0) {
+            elementalCreator.createInputs(true, 'inp', yourname, yourname.length, true);
+            elementalCreator.createBtn_submit('btn_submit', '<i class="fa-regular fa-thumbs-up"></i>');
+        } else {
+            return;
+        }
     });
 }
 createInps();
