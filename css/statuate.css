@@ -142,4 +142,23 @@
     .statute{
         padding: 10px 5px !important;
     }
+
+    .statute .content {
+        margin-top: 40px;
+        padding: 5px;
+    }
+
+    .statute .content .introduction {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .statute .content .headline {
+        margin: 100px 0; /* Zmniejszenie marginesu w pionie */
+    }
+
+    .statute .content .reglas {
+        padding: 5px;
+        margin-top: 10px;
+    }
 }
