@@ -1,0 +1,145 @@
+.section1{
+
+    .statute{
+        position: relative;
+        margin-top: 50px;
+        background-color: var(--opacityColor);
+        width: 100%;
+        padding: 50px 140px;
+
+
+
+        .content{
+            margin-top: 80px;
+            padding: 10PX;
+            color: var(--color1);
+            text-align: center;
+            .introduction{
+                background-color: var(--opacityColor);
+                border-radius: 12px;
+                padding: 10px;
+                margin-top: 20px;
+
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                
+                hr{
+                    width: 70%;
+                }
+                .example{
+                    position: relative;
+                    width: fit-content;
+                    margin: 5px auto;
+
+                    .circleOn{
+                        position: absolute;
+                        top: -16px;
+                        left: 54px;
+
+                    }
+                    .lineOn{
+                        position: absolute;
+                        top: -16px;
+                        left: 96px;
+                        
+                    }
+
+                    span{
+                        letter-spacing: 3px;
+                    }
+                }
+
+            }
+            .reglas{
+                padding: 10px;
+                border: 2px dashed var(--color1);
+                margin-top: 20px;
+                background-color: var(--color4);
+
+                ul{
+                   li{
+                    margin-bottom: 10px;
+                   }
+                }
+
+                span{
+                    letter-spacing: 2px;
+                }
+            }
+            .headline{
+                margin: 200px 0;
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+                text-align: center;
+                color: var(--color1);
+              
+            }
+            .unique{
+                color: var(--color1);
+                text-shadow: var(--glowLight);
+    
+            }
+
+            ul{
+                list-style: none;
+                text-align: left;
+            }
+            .icon{
+                margin: 0 10px;
+            }
+
+        }
+        
+
+        .wave2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave2 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 66px;
+        }
+        
+        .wave2 .shape-fill {
+            fill: var(--color2);
+        }
+    }
+}
+
+.wave {
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(118% + 1.3px);
+    height: 84px;
+}
+
+.wave .shape-fill {
+    fill: var(--color2);
+}
+/* RESPONSIVE:  */
+
+@media (max-width: 723px) {
+    .statute{
+        padding: 10px 5px !important;
+    }
+}

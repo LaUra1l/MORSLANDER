@@ -1,0 +1,210 @@
+
+
+.section1{
+
+    display: block !important;
+    position: relative;
+    min-height: 60vh;
+
+    .contenerWaves{
+
+        position: relative;
+
+        height: 40vh;
+
+
+        .wave5 {
+            position: absolute;
+            top: 23px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave5 svg {
+            position: relative;
+            display: block;
+            width: calc(300% + 1.3px);
+            height: 208px;
+        }
+        
+        .wave5 .shape-fill {
+            fill:var(--color4);
+
+        }
+
+
+        .wave6 {
+
+            position: absolute;
+            top: -88px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .wave6 svg {
+            position: relative;
+            display: block;
+            width: calc(300% + 1.3px);
+            height: 122px;
+
+        }
+        
+        .wave6 .shape-fill {
+            fill:var(--color4)
+        }
+
+
+
+        
+        
+    }
+    
+    .contener{
+        padding: 5px;
+        overlay: none;
+        z-index: 2;
+        min-height: 70vh;
+        .introduction{
+
+      
+            color: var(--color1);
+            font-size: 0.9rem;
+            border: 2px solid var(--opacityColor);
+            padding: 10px;
+            margin: 10px;
+            background-color: var(--color4);
+    
+        }
+        .optionsDiv{
+            font-size: .8rem;
+            display: flex;
+            justify-content: space-between;
+            max-width:50vh;
+            margin: 5px auto;
+            
+    
+    
+    
+            div{
+                display: flex;
+                width: 120px;
+                height: 52px;
+                background-color: var(--color1);
+                justify-content: center;
+                align-items: center;
+                border: 5px solid var(--color4);
+                border-radius: 5px;
+                color: var(--color2);
+                cursor: pointer;
+                transition: .4s;
+    
+                &:hover{
+                    background-color: var(--opacityColor);
+                }
+    
+            }
+        }
+        .inpContener{
+            position: relative;
+            z-index: 4;
+
+            background-color: var(--opacityColor);
+            border-radius: 8px;
+            margin: 25px auto;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 10px;
+            max-width: 80vh;
+    
+            label{
+                
+                color: var(--color1);
+                text-shadow: var(--glowLight);
+                
+                display: flex;
+                justify-content: space-between;
+
+                .mors_icon{
+                    margin: 0 2px;
+                }
+
+                .inp{
+                    background-color: var(--color1);
+                    border: 3.3px solid var(--color4);
+                    border-radius: 5px;
+                    margin: 0 10px;
+                    transition: 0s;
+                    font-weight: 600;
+                  
+
+                    &:focus{
+                        border: 2px solid var(--color2);
+                        outline: none;
+                        background-color: var(--opacityColor);
+                        color: var(--color1);
+                    }
+                    
+                
+                }
+                
+            }
+    
+            
+            
+        }
+    }
+
+
+    .wave8 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+    
+    .wave8 svg {
+        position: relative;
+        display: block;
+        width: calc(300% + 1.3px);
+        height: 225px;
+    }
+    
+    .wave8 .shape-fill {
+        fill:var(--color1);
+    }
+}
+
+@keyframes moving {
+  
+    100%{
+        width: calc(1011% + 1.3px);
+        fill: var(--color3)
+    }
+    
+    
+}
+
+@media (max-width: 723px) {
+    .inpContener label{
+        display: block !important;
+    }
+    .wave8 {
+        bottom: 0 !important; /* Upewnij się, że nadal przylega do dołu */
+    }
+
+    .wave8 svg {
+        width: calc(200% + 1.3px) !important; /* Możesz dostosować szerokość SVG, aby lepiej pasował */
+        height: 180px !important; /* Możesz zmienić wysokość, jeśli to konieczne */
+    }
+}

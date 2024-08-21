@@ -1,0 +1,154 @@
+.section1{
+
+    .contener_history{
+        margin-top: 50px;
+        position: relative;
+        width: 80%;
+
+        .sliderDiv{
+            position: relative;
+            width: 100%;
+            min-height: 40vh;
+            margin-top: 50px;
+
+            .headline{
+                /* margin: 200px 0; */
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+                text-align: center;
+                color: var(--color1);
+            }
+
+            .slide{
+                height: 45vh;
+                width: 100%;
+                background-color: var(--opacityColor);
+
+                display: flex;
+                align-items: center;
+                text-align: center;
+                z-index: 4;
+                position: relative;
+
+                    
+                p{
+                    margin: 10px;
+                    padding: 40px;
+                    color: var(--color1);
+                   
+                }
+               
+                .unique{
+                    color: var(--color1);
+                    text-shadow: var(--glowLight);
+        
+                }
+                .author{
+                    color: var(--color1);
+                    background-color: var(--color4);
+                }
+                        
+            }
+
+         
+
+            
+        }
+
+        
+        .div{
+            margin-top: 20px;
+            height: 10vh;
+            position: relative;
+
+            .buttons{
+                position: absolute;
+                display: flex;
+                justify-content: space-evenly;
+                
+                width: 100%;
+    
+                button{
+                    background-color: var(--color4);
+                    color: var(--color1);
+                    height: 20px;
+                    width: 50px;
+                    display: flex;
+                    text-align: center;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 15px;
+    
+                    border-top: 2px solid var(--color1);
+                    border-left: 2px solid var(--color1);
+                    border-bottom: 2px solid var(--color2);
+                    border-right: 2px solid var(--color2);
+    
+                    transition: 0s;
+                    cursor: pointer;
+    
+                    &:active{
+                        border-top: 2px solid var(--color2);
+                        border-left: 2px solid var(--color2);
+                        border-bottom: 2px solid var(--color1);
+                        border-right: 2px solid var(--color1);
+                    }
+                    &:hover{
+                        border-top: 2px solid var(--color3);
+                        border-left: 2px solid var(--color3);
+                    }
+                   
+                }
+            }
+        }
+        .sumary{
+            color: var(--color1);
+            text-shadow: var(--glowLight);
+        }
+    }
+}
+
+/* OGÓLNE WŁAŚCIWOŚCI */
+
+.activeSlide {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.sliderDiv b.activeSlide, 
+.sliderDiv p.activeSlide {
+    animation-name: slideIn;
+}
+
+@keyframes slideIn {
+    0%{
+        color: var(--opacityColor);
+    }
+    100%{
+       color: var(--color1);
+    }
+}
+
+/* RESPONSIVE:  */
+
+@media (max-width: 723px) {
+    .contener_history{
+        font-size: smaller;
+        width: 95% !important;
+        margin-top: 20px !important;
+        width: 95% !important; /* lub inna mniejsza wartość */
+    }
+    .sliderDiv{
+        p{
+            padding: 8px !important;
+        }
+    }
+
+    .slide {
+        width: 100% !important; /* upewnienie się, że zajmuje pełną szerokość */
+        height: auto !important; /* dostosowanie wysokości proporcjonalnie */
+    }
+    .curve {
+        width: 100% !important; /* skalowanie do pełnej szerokości */
+        height: auto !important; /* automatyczne dostosowanie wysokości */
+    }
+}
