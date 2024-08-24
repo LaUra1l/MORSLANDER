@@ -79,32 +79,32 @@ const lineLetters='ou';
 
 
 const suggestion_table = new Map([
-    ["A", ['Amor', 'Albo','Arbuz','Album']],
-    ["B", ['Boazeria']],
+    ["A", ['Amor', 'Albo','Arbuz','Album','Azot']],
+    ["B", ['Botanika','Boazeria']],
     ["C", ['Cocacola']],
     ["D", ['Dolina', 'Dobrawa','Dodawać']],
-    ["E", ['Elf']],
-    ["F", ['Faszerować']],
-    ["G", ['Gumowa']],
-    ["H", ['Hahahaha']],
+    ["E", ['Elf','Ełk']],
+    ["F", ['Faszerować','Filantropia']],
+    ["G", ['Gumowa','Gospoda']],
+    ["H", ['Halabarda','Hahahaha']],
     ["I", ['Igła', 'Iza','Ibis',"Imię", "Inka"]],
-    ["J", ['Jajooo']],
-    ["K", ['Koralowy']],
-    ["L", ['Lampkowaa','Lagunaa']],
-    ["M", ['Momo','Murowy']],
+    ["J", ['Jednokonno','Jajooo']],
+    ["K", ['Kolano','Koralowy']],
+    ["L", ['Leonidas','Lampkowaa','Lagunaa']],
+    ["M", ['Motor','Momo','Murowy']],
     ["N", ['Noga', 'Nosa','Nowa','Nuria','Nora']],
-    ["O", ['Ooo', 'Oknoo','Okupowy','Ouzo',"Oulu"]],
-    ["P", ['Piotrowice']],
-    ["Q", ['Quoao']],
-    ["R", ['Ratunek','Ratować']],
+    ["O", ['Opoczno','Oknoo','Okupowy','Ouzo',"Oulu",'Ooo']],
+    ["P", ['Piotrowice','Peloponez']],
+    ["Q", ['Q gospodarstwo','Quoao']],
+    ["R", ['Ratunek','Ratować','Retorta']],
     ["S", ['Sakrament','Senegal','Samanta','Sahara']],
     ["T", ['To','Tom', 'Tor']],
     ["U", ['Ultraarbuz','Ultraamor']],
-    ["V", ['Valencio']],
-    ["W", ['Wichuro']],
+    ["V", ['Vincent van Gogh','Valencio']],
+    ["W", ['Winorośl','Wichuro']],
     ["X", ['Xuaau']],
-    ["Y", ['Yomamolo']],
-    ["Z", ['Zozolee','Zubożała','Zdruzgotana']]
+    ["Y", ['Yogurtowo','Yomamolo']],
+    ["Z", ['Zozolee','Zubożała','Zdruzgotana','Złoto lite']]
 ]);
 
 
@@ -953,10 +953,10 @@ class UseMors {
             for (let i = 0; i < mors_chars.length; i++) {
                 if (mors_chars[i] === '.') {
              
-                    regexTxt += `[${circleLetters}][bcćdfghjklłmnńoópqrsśtuvwxyzżź]*`
+                    regexTxt += `[${circleLetters}][bcćdfghjklłmnńoópqrsśtuvwxyzżź_/\\s/-]*`
                 } else if (mors_chars[i] === '-') {
                  
-                    regexTxt += `[${lineLetters}][aąbćcdeęfghijklłmnńpqrsśtvwxyzżź]*`;
+                    regexTxt += `[${lineLetters}][aąbćcdeęfghijklłmnńpqrsśtvwxyzżź_/\\s/-]*`;
                 } else {
                     console.log('cos zle');
                 }
