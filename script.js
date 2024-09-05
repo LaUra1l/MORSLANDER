@@ -1195,7 +1195,7 @@ class Quiz_system{
                     key = dictionary[this.#randomNumber(dictionary.length - 1, 0)];
                     question = key.word;
                     answers = key.translation;
-                    quiz_name = 'Przetłumacz słowo';
+                    quiz_name = '<span data-pl="Przetłumacz słowo" data-en="Translate the word" data-es="Traducir la palabra" >Przetłumacz słowo</span>';
 
                     if (this.#checkIsPolish(question) || this.#checkIsPolish(answers)) {
                         continue;
@@ -1211,7 +1211,7 @@ class Quiz_system{
                     key = dictionary[this.#randomNumber(dictionary.length - 1, 0)];
                     question = key.letter;
                     answers = key.mors;
-                    quiz_name = "Dopasuj Morse'a";
+                    quiz_name = "<span data-pl='Dopasuj Morse\'a' data-en='Match Morse Code' data-es='Empareja Morse' >Dopasuj Morse\'a</span>";
 
                     if (this.#checkIsPolish(question) || this.#checkIsPolish(answers)) {
                         continue;
@@ -1227,7 +1227,7 @@ class Quiz_system{
                     key = dictionary[this.#randomNumber(dictionary.length - 1, 0)];
                     question = key.mors;
                     answers = key.letter;
-                    quiz_name = "Dopasuj literę";
+                    quiz_name = "<span data-pl='Dopasuj literę' data-en='Match letter' data-es='Empareja la letra' >Dopasuj literę</span>";
 
                     if (this.#checkIsPolish(question) || this.#checkIsPolish(answers)) {
                         continue;
@@ -1242,7 +1242,7 @@ class Quiz_system{
                     key = dictionary[this.#randomNumber(dictionary.length - 1, 0)];
                     question = key.translation;
                     answers = key.word;
-                    quiz_name = 'Przetłumacz Morse\'a';
+                    quiz_name = "<span data-pl='Przetłumacz Morse\'a' data-en='Translate Morse Code' data-es='Traduce Morse' >Przetłumacz Morse\'a</span> ";
 
                     if (this.#checkIsPolish(question) || this.#checkIsPolish(answers)) {
                         continue;
@@ -1258,7 +1258,7 @@ class Quiz_system{
                         key = [...dictionary.keys()][this.#randomNumber(dictionary.size - 1, 0)];
                         question = key;
                         answers = dictionary.get(key);
-                        quiz_name = 'Wpisz';
+                        quiz_name = "<span data-pl='Wpisz' data-en='Write' data-es='Escribe' >Wpisz</span> ";
 
                         if (this.#checkIsPolish(question) || this.#checkIsPolish(answers)) {
                             continue;
@@ -1267,10 +1267,10 @@ class Quiz_system{
                             continue;
                         }
                     } else {
-                        message = "Dokończ tworzenie słownika ;)";
+                        message = "<span data-pl='Dokończ tworzenie słownika ;)' data-en='Finish your dictionary' data-es='Termina tu diccionario' >Dokończ tworzenie słownika ;)</span> ";
                         const questionElem = this.#createElement('h2');
                         questionElem.classList.add('messageTxt');
-                        questionElem.textContent = message;
+                        questionElem.innerHTML = message;
                         sectionMain.appendChild(questionElem);
                         return;
                     }
@@ -1288,7 +1288,7 @@ class Quiz_system{
                 questionElem.classList.add('questionValue');
                 questionElem.textContent = question;
 
-                numberElem.textContent = "PYTAŃ: " + (questionNumber - i);
+                numberElem.innerHTML = "<span data-pl='PYTAŃ:' data-es='PREGUNTAS:' data-en='QUESTIONS: '>PYTAŃ:</span> " + (questionNumber - i);
 
                 const input = this.#createElement('input');
                 input.classList.add('inp');
@@ -1507,7 +1507,7 @@ class Results {
 
         localStorage.setItem("Completed_quiz", this.#convert(this.completedQuiz));
 
-        console.log(localStorage.getItem("Completed_quiz"));
+        console.log(localStorage.getItem("Completed_quiz")); 
 
         this.#addResult_toPage(result)
     }
@@ -1517,9 +1517,9 @@ class Results {
         const li=document.createElement('li');
 
         const p_name=document.createElement('p');
-        p_name.innerHTML=`<b>Nazwa:</b> <i>"${result_inf.name}"</i>`;
+        p_name.innerHTML=`<b data-pl='Nazwa:' data-es='Nombre:' data-en='Name:'>Nazwa:</b> <i>"${result_inf.name}"</i>`;
         const p_date=document.createElement('p');
-        p_date.innerHTML=`<b>Data:</b> ${result_inf.date} ${result_inf.hour ===undefined? "": ' , '+result_inf.hour+':'}${result_inf.minute===undefined? "": result_inf.minute}`;
+        p_date.innerHTML=`<b data-pl='Data:' data-es='Fecha:' data-en='Date:' >Data:</b> ${result_inf.date} ${result_inf.hour ===undefined? "": ' , '+result_inf.hour+':'}${result_inf.minute===undefined? "": result_inf.minute}`;
 
         li.appendChild(p_name);
         li.appendChild(p_date);
@@ -1575,7 +1575,7 @@ class Language{
     }
 
 }
-
+ 
 document.addEventListener('DOMContentLoaded',()=>{
     const navBar=new IconInteraction();
     navBar.addClassName('navBar','.navList','click','fa-solid fa-bars-staggered navBar','fa-solid fa-rectangle-xmark navBar','320px');
