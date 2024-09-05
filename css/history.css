@@ -38,11 +38,7 @@
                    
                 }
                
-                .unique{
-                    color: var(--color1);
-                    text-shadow: var(--glowLight);
-        
-                }
+               
                 .author{
                     color: var(--color1);
                     background-color: var(--color4);
