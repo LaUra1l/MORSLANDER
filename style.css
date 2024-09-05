@@ -182,7 +182,7 @@ a{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: center; 
 
         .content {
             position: relative;
@@ -233,6 +233,42 @@ a{
         text-align: center;
         display: flex;
         justify-content: center;
+
+        .contentContener{
+            width: 80%;
+            margin: 20vh 0;
+
+            .txt1{
+                background-color: var(--color1);
+                padding: 10px;
+                color: var(--color2);
+
+                font-size: 1.2rem;
+                font-weight: 600;
+                letter-spacing: 3px;
+                border-radius: 5px;
+                
+            }
+            .txt2{
+                background-color: var(--opacityColor);
+                color: var(--color1);
+                padding: 10px;
+                border-bottom: 2px dashed var(--color4);
+                border-radius: 5px;
+
+            }
+            .txt3{
+                /* background-color: var(--color3); */
+                color: var(--color1);
+                padding: 10px;
+                border: 2px dashed var(--color1);
+                border-top: none;
+                text-align: left;
+                line-height: 27px;
+
+
+            }
+        }
     }
 }
 
@@ -330,6 +366,21 @@ a{
         background-image: url('img/england.png');
     }
     
+}
+
+.unique{
+    color: var(--color1);
+    text-shadow: var(--glowLight);
+
+}
+.unique2{
+    color: var(--color1);
+    border-bottom: 2px solid var(--color3);
+    margin-right: 5px;
+
+
+
+
 }
 
 
