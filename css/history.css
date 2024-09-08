@@ -140,11 +140,11 @@
     }
 
     .slide {
-        width: 100% !important; /* upewnienie się, że zajmuje pełną szerokość */
-        height: auto !important; /* dostosowanie wysokości proporcjonalnie */
+        width: 100% !important;
+        height: auto !important; 
     }
     .curve {
-        width: 100% !important; /* skalowanie do pełnej szerokości */
-        height: auto !important; /* automatyczne dostosowanie wysokości */
+        width: 100% !important; 
+        height: auto !important;
     }
 }
